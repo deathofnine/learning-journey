@@ -1,0 +1,48 @@
+一、常考问题
+ifconfig 临时配置 IP 命令
+bash
+运行
+ifconfig eth0 192.168.1.88 netmask 255.255.255.0
+临时 IP 特点
+重启失效，只用于调试
+为什么临时设 IP
+让开发板和电脑同网段，ping 通、SSH 远程登录、传文件、调试网络程序
+永久改 IP 怎么做
+修改系统网络配置文件
+二、必背两句答案
+临时 IP：调试快速组网，方便远程连接开发板，重启恢复默认
+正式产品使用永久静态 IP
+三、顺带背
+开启网卡：ifconfig eth0 up
+关闭网卡：ifconfig eth0 down
+
+
+2. route 和 DNS
+确保 Windows 和 Ubuntu 的网络能互相 ping 通之后，如果 Ubuntu 无法上
+网，原因通常有 2 个：路由没设置好，DNS 没设置好。
+如果执行以下命令不成功，表示路由没设置好：
+$ ping 8.8.8.8
+connect: Network is unreachable
+如果“ping 8.8.8.8”成功，但是“ping www.baidu.com”不成功，则是 DNS
+没设置好：
+$ ping www.baidu.com
+ping: unknown host www.baidu.com
+DNS 的设置比较简单，8.8.8.8 是好记好用的 DNS 服务器，修改 Ubuntu 中的
+/etc/resolv.conf 文件，内容如下：
+nameserver 8.8.8.8
+路由信息使用 route 命令查看，其输
+
+vi/vim 保存退出 面试必背
+1. :wq
+write + quit：保存修改 + 退出
+不管文件改没改，都会更新文件修改时间
+正常写完代码 / 配置，常用这个
+2. :x
+作用：保存并退出
+区别核心：
+文件有改动：和wq一模一样，保存退出
+文件没改动：直接退出，不修改文件时间戳
+更温柔，不改文件属性
+
+
+
